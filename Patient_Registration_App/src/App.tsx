@@ -1,14 +1,22 @@
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LoginRegister from "./components/LoginRegister";
+import PatientForm from "./components/PatientForm";
+import PatientList from "./components/PatientList";
+import QueryInterface from "./components/QueryInterface";
 
-function App() {
-
+const App: React.FC = () => {
   return (
-    <>
-      <p className="bg-red-500">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <BrowserRouter>
+      <div className="bg-gray-100 min-h-screen">
+        <Routes>
+          <Route path="/" element={<LoginRegister />} />
+          <Route path="/register-patient" element={<PatientForm />} />
+          <Route path="/patient-list" element={<PatientList />} />
+          <Route path="/query" element={<QueryInterface />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;
